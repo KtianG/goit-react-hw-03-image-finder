@@ -8,9 +8,11 @@ export class Searchbar extends Component {
   };
 
   render() {
+    const { onSubmit } = this.props;
+
     return (
       <div className={css.header}>
-        <form className={css.SearchForm}>
+        <form className={css.SearchForm} onSubmit={e => onSubmit(e)}>
           <button type="submit" className={css.SearchForm_button}>
             <span className={css.SearchForm_button_label}>Search</span>
           </button>
@@ -19,6 +21,7 @@ export class Searchbar extends Component {
             className={css.SearchForm_input}
             type="text"
             autoComplete="off"
+            name="query"
             autoFocus
             placeholder="Search images and photos"
           />
